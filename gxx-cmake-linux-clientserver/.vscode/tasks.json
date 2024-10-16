@@ -1,0 +1,67 @@
+{
+  "tasks": [
+    {
+      "label": "Configure",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "-B",
+        "${workspaceFolder}/build",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ]
+    },
+    {
+      "label": "Build server",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "${workspaceFolder}/build",
+        "--config",
+        "Debug",
+        "--target",
+        "server_app",
+        "-j",
+        "12"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "detail": "Build the server program using CMake",
+      "dependsOn": [
+        "Configure"
+      ]
+    },
+    {
+      "label": "Build client",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "${workspaceFolder}/build",
+        "--config",
+        "Debug",
+        "--target",
+        "client_app",
+        "-j",
+        "12"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "detail": "Build the client program using CMake",
+      "dependsOn": [
+        "Configure"
+      ]
+    }
+  ],
+  "version": "2.0.0"
+}

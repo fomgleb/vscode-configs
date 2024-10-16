@@ -1,0 +1,63 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Client",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/src/client/client_app",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/src/client",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+      "sourceFileMap": {
+        "${workspaceFolder}/src/client": "${workspaceFolder}/src/client",
+        "${workspaceFolder}/src/server": "${workspaceFolder}/src/server"
+      },
+      "preLaunchTask": "Build client"
+    },
+    {
+      "name": "Debug Server",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/src/server/server_app",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/src/server",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+      "sourceFileMap": {
+        "${workspaceFolder}/src/client": "${workspaceFolder}/src/client",
+        "${workspaceFolder}/src/server": "${workspaceFolder}/src/server"
+      },
+      "preLaunchTask": "Build server"
+    },
+  ]
+}
